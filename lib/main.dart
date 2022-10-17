@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(440, 580),
+      designSize: const Size(440, 670),
       builder: (contest, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'BMI Calculator',
