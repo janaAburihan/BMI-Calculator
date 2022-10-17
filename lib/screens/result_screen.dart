@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({
@@ -26,7 +27,7 @@ class ResultScreen extends StatelessWidget {
           child: Container(
         decoration: BoxDecoration(
           color: Colors.amber[600],
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
+          borderRadius: BorderRadius.all(Radius.circular(15.h.w)),
         ),
         height: MediaQuery.of(context).size.height * 2 / 3,
         width: MediaQuery.of(context).size.width * 2 / 3,
@@ -36,14 +37,16 @@ class ResultScreen extends StatelessWidget {
           children: [
             Text(
               textResult1 ?? '',
-              style: const TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.w500, letterSpacing: 2),
+              style: TextStyle(
+                  fontSize: 24.h.w,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 2.w),
             ),
             Text(
-              bmiResult!.toStringAsFixed(2),
+              bmiResult!.toStringAsFixed(1),
               style: TextStyle(
                   color: Colors.orangeAccent[700],
-                  fontSize: 72,
+                  fontSize: 72.h.w,
                   fontWeight: FontWeight.bold),
             ),
             Center(
@@ -52,12 +55,12 @@ class ResultScreen extends StatelessWidget {
                 children: [
                   Text(
                     textResult2 ?? '',
-                    style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                        fontSize: 20.h.w, fontWeight: FontWeight.w600),
                   ),
                   Text(textResult3 ?? '',
-                      style: const TextStyle(
-                        fontSize: 18,
+                      style: TextStyle(
+                        fontSize: 18.h.w,
                       )),
                 ],
               ),

@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/left_bar.dart';
 import '../widgets/right_bar.dart';
@@ -34,28 +35,28 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Text(
-            'Enter your height(in metres) and weight(in kilogrammes):',
+            'Enter your height(in metres) and weight(in kilogrammes) :',
             style: TextStyle(
                 color: Colors.amber[700],
-                fontSize: 20,
+                fontSize: 20.w.h,
                 fontWeight: FontWeight.w400),
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 20.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
-                width: 100,
+                width: 100.w.h,
                 child: TextField(
                   onChanged: (String? v) {
                     height = v;
                   },
                   style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 30.h.w,
                       color: Colors.amber[700],
                       fontWeight: FontWeight.w300),
                   keyboardType: TextInputType.number,
@@ -64,19 +65,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: InputBorder.none,
                       hintText: 'Height',
                       hintStyle: TextStyle(
-                          fontSize: 30,
+                          fontSize: 30.h.w,
                           color: Colors.white.withOpacity(0.8),
                           fontWeight: FontWeight.w300)),
                 ),
               ),
               SizedBox(
-                width: 100,
+                width: 100.w.h,
                 child: TextField(
                   onChanged: (String? v) {
                     weight = v;
                   },
                   style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 30.h.w,
                       color: Colors.amber[700],
                       fontWeight: FontWeight.w300),
                   keyboardType: TextInputType.number,
@@ -85,15 +86,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: InputBorder.none,
                       hintText: 'Weight',
                       hintStyle: TextStyle(
-                          fontSize: 30,
+                          fontSize: 30.h.w,
                           color: Colors.white.withOpacity(0.8),
                           fontWeight: FontWeight.w300)),
                 ),
               )
             ],
           ),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            height: 40.h,
           ),
           InkWell(
             onTap: (() {
@@ -135,36 +136,36 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               'Calculate',
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 24.h.w,
                   fontWeight: FontWeight.bold,
                   color: Colors.amber[700]),
             ),
           ),
           Visibility(
             visible: !valid,
-            child: const Text(
-              'Please enter valid values for the height and the width!',
-              style: TextStyle(color: Colors.red),
+            child: Text(
+              'Please enter valid values for the height and weight!',
+              style: TextStyle(color: Colors.red, fontSize: 14.h.w),
             ),
           ),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: 10.h,
           ),
           const RightBar(barWidth: 40),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 20.h,
           ),
           const RightBar(barWidth: 70),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 20.h,
           ),
           const RightBar(barWidth: 40),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 20.h,
           ),
           const LeftBar(barWidth: 70),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 50.h,
           ),
           const LeftBar(barWidth: 70),
         ],

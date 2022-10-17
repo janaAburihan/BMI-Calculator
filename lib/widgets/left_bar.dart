@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LeftBar extends StatelessWidget {
   final double barWidth;
@@ -10,8 +11,8 @@ class LeftBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: 25,
-          width: barWidth,
+          height: 25.h,
+          width: barWidth.w,
           decoration: BoxDecoration(
               color: Colors.amber[700],
               borderRadius: const BorderRadius.only(
