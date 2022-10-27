@@ -19,7 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   String textResult1 = '';
   String textResult2 = '';
   String textResult3 = '';
-  bool valid = true;
+  double differenceWeight = 0;
+  bool isValid = true;
+  int isOverWeight = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
         children: [
           SizedBox(height: 20.h),
-          Text(
-            'Enter your height(in metres) and weight(in kilogrammes) :',
-            style: TextStyle(
-                color: Colors.amber[700],
-                fontSize: 20.w.h,
-                fontWeight: FontWeight.w400),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Enter your height(in metres) and weight(in kilograms) :',
+              style: TextStyle(
+                  color: Colors.amber[700],
+                  fontSize: 20.w.h,
+                  fontWeight: FontWeight.w400),
+            ),
           ),
           SizedBox(
             height: 20.h,
@@ -101,7 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
               if (weight!.isNotEmpty &&
                   height!.isNotEmpty &&
                   weight != '0' &&
-                  height != '0') {
+                  height != '0' &&
+                  weight![0] != '-' &&
+                  height![0] != '-') {
                 bmiResult = double.parse(weight!) /
                     (double.parse(height!) * double.parse(height!));
                 if (bmiResult! > 25) {
@@ -117,6 +124,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   textResult2 = "Normal BMI range:";
                   textResult3 = "18.5 - 25 kg/m^2";
                 }
+
+                if (bmiResult! > 25) {
+                  differenceWeight = double.parse(height!) *
+                      double.parse(height!) *
+                      (bmiResult! - 25);
+                  isOverWeight = 1;
+                } else if (bmiResult! < 18.5) {
+                  differenceWeight = double.parse(height!) *
+                      double.parse(height!) *
+                      (18.5 - bmiResult!);
+                  isOverWeight = -1;
+                } else {
+                  isOverWeight = 0;
+                }
+
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -124,12 +146,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             bmiResult: bmiResult,
                             textResult1: textResult1,
                             textResult2: textResult2,
-                            textResult3: textResult3))));
+                            textResult3: textResult3,
+                            differenceWeight: differenceWeight,
+                            isOverWeight: isOverWeight))));
                 setState(() {
-                  valid = true;
+                  isValid = true;
                 });
               } else {
-                valid = false;
+                isValid = false;
                 setState(() {});
               }
             }),
@@ -142,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Visibility(
-            visible: !valid,
+            visible: !isValid,
             child: Text(
               'Please enter valid values for the height and weight!',
               style: TextStyle(color: Colors.red, fontSize: 14.h.w),

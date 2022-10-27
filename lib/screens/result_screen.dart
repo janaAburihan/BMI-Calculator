@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/second_result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,19 +9,23 @@ class ResultScreen extends StatelessWidget {
     this.textResult1,
     this.textResult2,
     this.textResult3,
+    this.differenceWeight,
+    this.isOverWeight,
   }) : super(key: key);
   final double? bmiResult;
   final String? textResult1;
   final String? textResult2;
   final String? textResult3;
+  final double? differenceWeight;
+  final int? isOverWeight;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: const Text('Your Result'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey[900],
         elevation: 0,
       ),
       body: Center(
@@ -62,6 +67,44 @@ class ResultScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18.h.w,
                       )),
+                  Visibility(
+                    visible: isOverWeight == 1 || isOverWeight == -1,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((contest) => SecondResultScreen(
+                                        differenceWeight: differenceWeight,
+                                        isOverWeight: isOverWeight))));
+                          },
+                          child: Material(
+                            color: Colors.black,
+                            elevation: 10,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.orangeAccent[700]),
+                              child: Text(
+                                isOverWeight == 1
+                                    ? ' Number of kilos to lose! '
+                                    : ' Number of kilos to gain! ',
+                                style: TextStyle(
+                                  fontSize: 24.h.w,
+                                  fontFamily: '',
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
