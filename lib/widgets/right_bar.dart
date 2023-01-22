@@ -11,13 +11,13 @@ class RightBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
-          height: 25.h,
-          width: barWidth.w,
+          height: 25.h.w,
+          width: barWidth.w.h,
           decoration: BoxDecoration(
               color: Colors.amber[700],
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.h.w),
+                bottomLeft: Radius.circular(20.h.w),
               )),
         )
       ],

@@ -29,88 +29,95 @@ class ResultScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: Center(
-          child: Container(
-        decoration: BoxDecoration(
-          color: Colors.amber[600],
-          borderRadius: BorderRadius.all(Radius.circular(15.h.w)),
-        ),
-        height: MediaQuery.of(context).size.height * 2 / 3,
-        width: MediaQuery.of(context).size.width * 2 / 3,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              textResult1 ?? '',
-              style: TextStyle(
-                  fontSize: 24.h.w,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 2.w),
+        child: SingleChildScrollView(
+          child: Center(
+              child: Container(
+            decoration: BoxDecoration(
+              color: Colors.amber[600],
+              borderRadius: BorderRadius.all(Radius.circular(15.h.w)),
             ),
-            Text(
-              bmiResult!.toStringAsFixed(1),
-              style: TextStyle(
-                  color: Colors.orangeAccent[700],
-                  fontSize: 72.h.w,
-                  fontWeight: FontWeight.bold),
-            ),
-            Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    textResult2 ?? '',
-                    style: TextStyle(
-                        fontSize: 20.h.w, fontWeight: FontWeight.w600),
-                  ),
-                  Text(textResult3 ?? '',
-                      style: TextStyle(
-                        fontSize: 18.h.w,
-                      )),
-                  Visibility(
-                    visible: isOverWeight == 1 || isOverWeight == -1,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((contest) => SecondResultScreen(
-                                        differenceWeight: differenceWeight,
-                                        isOverWeight: isOverWeight))));
-                          },
-                          child: Material(
-                            color: Colors.black,
-                            elevation: 10,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.orangeAccent[700]),
-                              child: Text(
-                                isOverWeight == 1
-                                    ? ' Number of kilos to lose! '
-                                    : ' Number of kilos to gain! ',
-                                style: TextStyle(
-                                  fontSize: 24.h.w,
-                                  fontFamily: '',
+            height: 400.h.w,
+            width: 290.w.h,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  textResult1 ?? '',
+                  style: TextStyle(
+                      fontSize: 24.h.w,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 2.w),
+                ),
+                Text(
+                  bmiResult!.toStringAsFixed(2),
+                  style: TextStyle(
+                      color: Colors.orangeAccent[700],
+                      fontSize: 72.h.w,
+                      fontWeight: FontWeight.bold),
+                ),
+                Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        textResult2 ?? '',
+                        style: TextStyle(
+                            fontSize: 20.h.w, fontWeight: FontWeight.w600),
+                      ),
+                      Text(textResult3 ?? '',
+                          style: TextStyle(
+                            fontSize: 18.h.w,
+                          )),
+                      Visibility(
+                        visible: isOverWeight == 1 || isOverWeight == -1,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 10.h.w,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((contest) =>
+                                            SecondResultScreen(
+                                                differenceWeight:
+                                                    differenceWeight,
+                                                isOverWeight: isOverWeight))));
+                              },
+                              child: Material(
+                                color: Colors.black,
+                                elevation: 10,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(10.h.w),
+                                      color: Colors.orangeAccent[700]),
+                                  child: Text(
+                                    isOverWeight == 1
+                                        ? ' Number of kilos to lose! '
+                                        : ' Number of kilos to gain! ',
+                                    style: TextStyle(
+                                      fontSize: 22.h.w,
+                                      fontFamily: '',
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          )),
         ),
-      )),
+      ),
     );
   }
 }

@@ -11,13 +11,13 @@ class LeftBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: 25.h,
-          width: barWidth.w,
+          height: 25.h.w,
+          width: barWidth.w.h,
           decoration: BoxDecoration(
               color: Colors.amber[700],
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20.h.w),
+                bottomRight: Radius.circular(20.h.w),
               )),
         )
       ],
