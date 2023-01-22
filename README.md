@@ -1,5 +1,5 @@
 # bmi_calculator
-An application to calculate body mass index for adults and check whether they are overweight, underweight or have a normal weight. Then calculates how many kilogrammes they need to lose or gain to get back to the normal weight range.
+An application to calculate the body mass index for adults and check whether they are overweight, underweight or have a normal weight. Then calculates how many kilogrammes they need to lose or gain to get back to the normal weight range.
 
 ![Screenshot_1674396726](https://user-images.githubusercontent.com/105488402/213920811-f1656693-0974-40ef-996a-8db9589ad88f.png)
 
